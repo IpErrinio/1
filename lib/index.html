@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test wysyłki e-maila</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </head>
+  <body>
+    <h1>Test SMTPJS</h1>
+    <button onclick="sendTestEmail()">Wyślij e-mail testowy</button>
+    <script>
+      function sendTestEmail() {
+        Email.send({
+          SecureToken: "8DF0A030BCD9E85346A430723D72BBF7E98A",
+          To: "dawiddzb01@gmail.com",
+          From: "akbinosvp@gmail.com",
+          Subject: "Odwiedzono stronę 1",
+          Body: "Odwiedziłeś stronę 2",
+        })
+          .then((message) => {
+            console.log("E-mail został wysłany!", message);
+          })
+          .catch((error) => {
+            console.error("Błąd przy wysyłaniu e-maila.", error);
+          });
+      }
+    </script>
+  </body>
+</html>
